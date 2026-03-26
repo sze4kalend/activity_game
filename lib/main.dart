@@ -104,59 +104,72 @@ class JatekOldal extends StatefulWidget {
 }
 
 class _JatekOldalState extends State<JatekOldal> {
-  final List<Map<String, String>> feladvanyok = [
-    {'kep': 'assets/kutya.jpg', 'valasz': 'kutya'},
-    {'kep': 'assets/auto.jpg', 'valasz': 'autó'},
-    {'kep': 'assets/bicikli.jpg', 'valasz': 'bicikli'},
-    {'kep': 'assets/csiga.jpg', 'valasz': 'csiga'},
-    {'kep': 'assets/cica.jpg', 'valasz': 'cica'},
-    {'kep': 'assets/tigris.jpg', 'valasz': 'tigris'},
-    {'kep': 'assets/oroszlan.jpg', 'valasz': 'oroszlán'},
-    {'kep': 'assets/zebra.jpg', 'valasz': 'zebra'},
-    {'kep': 'assets/lo.jpg', 'valasz': 'ló'},
-    {'kep': 'assets/halacska.jpg', 'valasz': 'hal'},
-    {'kep': 'assets/elefant.jpg', 'valasz': 'elefánt'},
-    {'kep': 'assets/madar.jpg', 'valasz': 'madár'},
-    {'kep': 'assets/motor.jpg', 'valasz': 'motor'},
-    {'kep': 'assets/majom.jpg', 'valasz': 'majom'},
-    {'kep': 'assets/nyuszi.jpg', 'valasz': 'nyuszi'},
+  final List<Map<String, dynamic>> feladvanyok = [
+    {
+      'kep': 'assets/kutya.jpg',
+      'valasz': 'kutya',
+      'opciok': [
+        'assets/klikk_cica.jfif',
+        'assets/klikk_kutya.jfif',
+        'assets/klikk_lo.jfif'
+      ]
+    },
+    {
+      'kep': 'assets/auto.jpg',
+      'valasz': 'autó',
+      'opciok': [
+        'assets/klikk_auto.jfif',
+        'assets/klikk_motor.jfif',
+        'assets/klikk_bicikli.jfif'
+      ]
+    },
+    {
+      'kep': 'assets/bicikli.jpg',
+      'valasz': 'bicikli',
+      'opciok': [
+        'assets/klikk_lo.jfif',
+        'assets/klikk_bicikli.jfif',
+        'assets/klikk_auto.jfif'
+      ]
+    },
+    // Ide jöhet a többi 12 kép...
   ];
 
   int index = 0;
   int pontszam = 0;
   final TextEditingController controller = TextEditingController();
   String uzenet = "";
-  bool jatekVege = false; // Új változó a játék végének jelzésére
+  bool jatekVege = false;
 
-  void ellenorzes() {
-    String tipp = controller.text.trim().toLowerCase();
-
-    setState(() {
-      if (tipp == feladvanyok[index]['valasz']) {
+  void ellenorzes(String tipp) {
+    String tisztaTipp = tipp.trim().toLowerCase();
+    if (tisztaTipp == feladvanyok[index]['valasz'].toString().toLowerCase()) {
+      setState(() {
         pontszam += 10;
         uzenet = "Ügyes vagy! 🎉 +10 pont";
+      });
 
-        Future.delayed(const Duration(seconds: 1), () {
-          if (mounted) {
-            setState(() {
-              if (index < feladvanyok.length - 1) {
-                index++;
-                controller.clear();
-                uzenet = "";
-              } else {
-                uzenet = "VÉGE A JÁTÉKNAK! Összesen: $pontszam pont.🏆";
-                jatekVege = true; // Itt jelezzük, hogy vége
-              }
-            });
-          }
-        });
-      } else {
-        uzenet = "Sajnos nem talált! ❌ Try again!";
-      }
-    });
+      Future.delayed(const Duration(seconds: 1), () {
+        if (mounted) {
+          setState(() {
+            if (index < feladvanyok.length - 1) {
+              index++;
+              controller.clear();
+              uzenet = "";
+            } else {
+              uzenet = "VÉGE A JÁTÉKNAK! Összesen: $pontszam pont.🏆";
+              jatekVege = true;
+            }
+          });
+        }
+      });
+    } else {
+      setState(() {
+        uzenet = "Sajnos nem talált! ❌ Próbáld újra!";
+      });
+    }
   }
 
-  // ÚJRAKEZDÉS FÜGGVÉNY
   void ujrakezdes() {
     setState(() {
       index = 0;
@@ -180,87 +193,109 @@ class _JatekOldalState extends State<JatekOldal> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            Text(
-              "Pontszám: $pontszam",
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.indigo,
-              ),
-            ),
-            const SizedBox(height: 20),
+            Text("Pontszám: $pontszam",
+                style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.indigo)),
+            const SizedBox(height: 10),
             Container(
-              height: 300,
+              height: 200,
               width: double.infinity,
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.amber, width: 4),
+                border: Border.all(color: Colors.amber, width: 3),
                 borderRadius: BorderRadius.circular(20),
+                color: Colors.white,
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.asset(
-                  feladvanyok[index]['kep']!,
-                  fit: BoxFit.contain,
-                  errorBuilder: (context, error, stackTrace) =>
-                      const Center(child: Text("Hiba a kép betöltésekor!")),
-                ),
+                child: Image.asset(feladvanyok[index]['kep']!,
+                    fit: BoxFit.contain),
               ),
             ),
-            const SizedBox(height: 30),
-
-            // Csak akkor mutatjuk a beviteli mezőt és a gombot, ha nincs vége
+            const SizedBox(height: 25),
             if (!jatekVege) ...[
+              const Text("Melyik van a képen? Kattints rá!",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: Colors.indigo)),
+              const SizedBox(height: 15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: (feladvanyok[index]['opciok'] as List<String>)
+                    .map((kepUtvonal) {
+                  return GestureDetector(
+                    onTap: () {
+                      // Itt a javított ellenőrzés:
+                      if (kepUtvonal.contains(feladvanyok[index]['valasz'])) {
+                        ellenorzes(feladvanyok[index]['valasz']);
+                      } else {
+                        ellenorzes("rossz");
+                      }
+                    },
+                    child: Container(
+                      width: 110,
+                      height: 110,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.indigo, width: 3),
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.white,
+                        boxShadow: const [
+                          BoxShadow(color: Colors.black12, blurRadius: 5)
+                        ],
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.asset(kepUtvonal, fit: BoxFit.contain),
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
+              const SizedBox(height: 30),
               TextField(
                 controller: controller,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: "Mi van a képen?",
+                  labelText: "Vagy írd be ide a választ...",
                   filled: true,
                   fillColor: Colors.white,
+                  isDense: true,
                 ),
+                onSubmitted: (value) => ellenorzes(value),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.amber,
-                  minimumSize: const Size(double.infinity, 55),
-                ),
-                onPressed: ellenorzes,
-                child: const Text(
-                  "Beküldés",
-                  style: TextStyle(fontSize: 20, color: Colors.black),
-                ),
+                    backgroundColor: Colors.amber,
+                    minimumSize: const Size(double.infinity, 45),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10))),
+                onPressed: () => ellenorzes(controller.text),
+                child: const Text("Ellenőrzés",
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold)),
               ),
             ],
-
-            const SizedBox(height: 25),
-            Text(
-              uzenet,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Colors.deepOrange,
-              ),
-            ),
-
-            // ÚJRAKEZDÉS GOMB - Csak a játék végén jelenik meg
+            const SizedBox(height: 20),
+            Text(uzenet,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.deepOrange)),
             if (jatekVege) ...[
               const SizedBox(height: 20),
               ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.indigo,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
-                ),
                 onPressed: ujrakezdes,
-                icon: const Icon(Icons.refresh, color: Colors.white),
-                label: const Text(
-                  "ÚJRA ELŐRŐL",
-                  style: TextStyle(fontSize: 20, color: Colors.white),
-                ),
+                icon: const Icon(Icons.refresh),
+                label: const Text("ÚJRA ELŐRŐL"),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40, vertical: 15)),
               ),
             ],
           ],
