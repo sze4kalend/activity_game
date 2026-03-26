@@ -114,7 +114,7 @@ class _JatekOldalState extends State<JatekOldal> {
     {'kep': 'assets/oroszlan.jpg', 'valasz': 'oroszlán'},
     {'kep': 'assets/zebra.jpg', 'valasz': 'zebra'},
     {'kep': 'assets/lo.jpg', 'valasz': 'ló'},
-    {'kep': 'assets/halacska.jpg', 'valasz': 'halacska'},
+    {'kep': 'assets/halacska.jpg', 'valasz': 'hal'},
     {'kep': 'assets/elefant.jpg', 'valasz': 'elefánt'},
     {'kep': 'assets/madar.jpg', 'valasz': 'madár'},
     {'kep': 'assets/motor.jpg', 'valasz': 'motor'},
