@@ -109,135 +109,135 @@ class _JatekOldalState extends State<JatekOldal> {
       'kep': 'assets/kutya.jpg',
       'valasz': 'kutya',
       'opciok': [
-        'assets/klikk_cica.jfif',
-        'assets/klikk_kutya.jfif',
-        'assets/klikk_lo.jfif'
+        {'kep': 'assets/klikk_cica.jfif', 'nev': 'cica'},
+        {'kep': 'assets/klikk_kutya.jfif', 'nev': 'kutya'},
+        {'kep': 'assets/klikk_lo.jfif', 'nev': 'lo'},
       ]
     },
     {
       'kep': 'assets/auto.jpg',
       'valasz': 'auto',
       'opciok': [
-        'assets/klikk_auto.jfif',
-        'assets/klikk_motor.jfif',
-        'assets/klikk_bicikli.jfif'
+        {'kep': 'assets/klikk_auto.jfif', 'nev': 'auto'},
+        {'kep': 'assets/klikk_motor.jfif', 'nev': 'motor'},
+        {'kep': 'assets/klikk_bicikli.jfif', 'nev': 'bicikli'},
       ]
     },
     {
       'kep': 'assets/bicikli.jpg',
       'valasz': 'bicikli',
       'opciok': [
-        'assets/klikk_lo.jfif',
-        'assets/klikk_bicikli.jfif',
-        'assets/klikk_auto.jfif'
+        {'kep': 'assets/klikk_lo.jfif', 'nev': 'lo'},
+        {'kep': 'assets/klikk_bicikli.jfif', 'nev': 'bicikli'},
+        {'kep': 'assets/klikk_auto.jfif', 'nev': 'auto'},
       ]
     },
     {
       'kep': 'assets/cica.jpg',
       'valasz': 'cica',
       'opciok': [
-        'assets/klikk_cica.jfif',
-        'assets/klikk_kutya.jfif',
-        'assets/klikk_nyuszi.jfif'
+        {'kep': 'assets/klikk_cica.jfif', 'nev': 'cica'},
+        {'kep': 'assets/klikk_kutya.jfif', 'nev': 'kutya'},
+        {'kep': 'assets/klikk_nyul.jfif', 'nev': 'nyuszi'},
       ]
     },
     {
       'kep': 'assets/csiga.jpg',
       'valasz': 'csiga',
       'opciok': [
-        'assets/klikk_csiga.jfif',
-        'assets/klikk_nyul.jfif',
-        'assets/klikk_zebra.jfif'
+        {'kep': 'assets/klikk_csiga.jfif', 'nev': 'csiga'},
+        {'kep': 'assets/klikk_nyul.jfif', 'nev': 'nyuszi'},
+        {'kep': 'assets/klikk_zebra.jfif', 'nev': 'zebra'},
       ]
     },
     {
       'kep': 'assets/zebra.jpg',
       'valasz': 'zebra',
       'opciok': [
-        'assets/klikk_zebra.jfif',
-        'assets/klikk_elefant.jfif',
-        'assets/klikk_lo.jfif'
+        {'kep': 'assets/klikk_zebra.jfif', 'nev': 'zebra'},
+        {'kep': 'assets/klikk_elefant.jfif', 'nev': 'elefant'},
+        {'kep': 'assets/klikk_lo.jfif', 'nev': 'lo'},
       ]
     },
     {
       'kep': 'assets/nyuszi.jpg',
       'valasz': 'nyuszi',
       'opciok': [
-        'assets/klikk_nyul.jfif',
-        'assets/klikk_kutya.jfif',
-        'assets/klikk_cica.jfif'
+        {'kep': 'assets/klikk_nyul.jfif', 'nev': 'nyuszi'},
+        {'kep': 'assets/klikk_kutya.jfif', 'nev': 'kutya'},
+        {'kep': 'assets/klikk_cica.jfif', 'nev': 'cica'},
       ]
     },
     {
       'kep': 'assets/lo.jpg',
       'valasz': 'lo',
       'opciok': [
-        'assets/klikk_zebra.jfif',
-        'assets/klikk_kutya.jfif',
-        'assets/klikk_lo.jfif'
+        {'kep': 'assets/klikk_zebra.jfif', 'nev': 'zebra'},
+        {'kep': 'assets/klikk_kutya.jfif', 'nev': 'kutya'},
+        {'kep': 'assets/klikk_lo.jfif', 'nev': 'lo'},
       ]
     },
     {
       'kep': 'assets/elefant.jpg',
       'valasz': 'elefant',
       'opciok': [
-        'assets/klikk_elefant.jfif',
-        'assets/klikk_oroszlan.jfif',
-        'assets/klikk_tigris.jfif'
+        {'kep': 'assets/klikk_elefant.jfif', 'nev': 'elefant'},
+        {'kep': 'assets/klikk_oroszlan.jfif', 'nev': 'oroszlan'},
+        {'kep': 'assets/klikk_tigris.jfif', 'nev': 'tigris'},
       ]
     },
     {
       'kep': 'assets/madar.jpg',
       'valasz': 'madar',
       'opciok': [
-        'assets/klikk_madar.jfif',
-        'assets/klikk_kutya.jfif',
-        'assets/klikk_lo.jfif'
+        {'kep': 'assets/klikk_kutya.jfif', 'nev': 'kutya'},
+        {'kep': 'assets/klikk_lo.jfif', 'nev': 'lo'},
+        {'kep': 'assets/klikk_madar.jfif', 'nev': 'madar'},
       ]
     },
     {
       'kep': 'assets/majom.jpg',
       'valasz': 'majom',
       'opciok': [
-        'assets/klikk_majom.jfif',
-        'assets/klikk_elefant.jfif',
-        'assets/klikk_tigris.jfif'
+        {'kep': 'assets/klikk_majom.jfif', 'nev': 'majom'},
+        {'kep': 'assets/klikk_elefant.jfif', 'nev': 'elefant'},
+        {'kep': 'assets/klikk_tigris.jfif', 'nev': 'tigris'},
       ]
     },
     {
       'kep': 'assets/tigris.jpg',
       'valasz': 'tigris',
       'opciok': [
-        'assets/klikk_tigris.jfif',
-        'assets/klikk_oroszlan.jfif',
-        'assets/klikk_cica.jfif'
+        {'kep': 'assets/klikk_oroszlan.jfif', 'nev': 'oroszlan'},
+        {'kep': 'assets/klikk_cica.jfif', 'nev': 'cica'},
+        {'kep': 'assets/klikk_tigris.jfif', 'nev': 'tigris'},
       ]
     },
     {
       'kep': 'assets/oroszlan.jpg',
       'valasz': 'oroszlan',
       'opciok': [
-        'assets/klikk_oroszlan.jfif',
-        'assets/klikk_majom.jfif',
-        'assets/klikk_elefant.jfif'
+        {'kep': 'assets/klikk_oroszlan.jfif', 'nev': 'oroszlan'},
+        {'kep': 'assets/klikk_majom.jfif', 'nev': 'majom'},
+        {'kep': 'assets/klikk_elefant.jfif', 'nev': 'elefant'},
       ]
     },
     {
       'kep': 'assets/motor.jpg',
       'valasz': 'motor',
       'opciok': [
-        'assets/klikk_motor.jfif',
-        'assets/klikk_auto.jfif',
-        'assets/klikk_bicikli.jfif'
+        {'kep': 'assets/klikk_auto.jfif', 'nev': 'auto'},
+        {'kep': 'assets/klikk_motor.jfif', 'nev': 'motor'},
+        {'kep': 'assets/klikk_bicikli.jfif', 'nev': 'bicikli'},
       ]
     },
     {
       'kep': 'assets/halacska.jpg',
       'valasz': 'halacska',
       'opciok': [
-        'assets/klikk_hal.jfif',
-        'assets/klikk_kutya.jfif',
-        'assets/klikk_lo.jfif'
+        {'kep': 'assets/klikk_kutya.jfif', 'nev': 'kutya'},
+        {'kep': 'assets/klikk_lo.jfif', 'nev': 'lo'},
+        {'kep': 'assets/klikk_hal.jfif', 'nev': 'halacska'},
       ]
     }
   ];
@@ -330,16 +330,13 @@ class _JatekOldalState extends State<JatekOldal> {
               const SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: (feladvanyok[index]['opciok'] as List<String>)
-                    .map((kepUtvonal) {
+                children:
+                    (feladvanyok[index]['opciok'] as List<Map<String, String>>)
+                        .map((opcio) {
                   return GestureDetector(
                     onTap: () {
-                      // Itt a javított ellenőrzés:
-                      if (kepUtvonal.contains(feladvanyok[index]['valasz'])) {
-                        ellenorzes(feladvanyok[index]['valasz']);
-                      } else {
-                        ellenorzes("rossz");
-                      }
+                      // Itt most már a 'nev' kulcsot küldjük be!
+                      ellenorzes(opcio['nev']!);
                     },
                     child: Container(
                       width: 110,
@@ -354,7 +351,7 @@ class _JatekOldalState extends State<JatekOldal> {
                       ),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(12),
-                        child: Image.asset(kepUtvonal, fit: BoxFit.contain),
+                        child: Image.asset(opcio['kep']!, fit: BoxFit.contain),
                       ),
                     ),
                   );
