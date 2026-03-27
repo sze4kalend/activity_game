@@ -49,12 +49,7 @@ class _FoOldalState extends State<FoOldal> {
                       'assets/activity_game.png',
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) =>
-                          const Center(
-                        child: Text(
-                          "Hiba a activity_game.png betöltésekor!\nKérlek, másold be az assets mappába!",
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
+                          const Center(child: Text("Hiba a kezdőképnél!")),
                     ),
                   ),
                 ),
@@ -66,25 +61,21 @@ class _FoOldalState extends State<FoOldal> {
                       backgroundColor: Colors.indigo,
                       padding: const EdgeInsets.symmetric(vertical: 20),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
+                          borderRadius: BorderRadius.circular(15)),
                     ),
                     onPressed: inditas,
                     child: const Text(
                       "👉 JÁTÉK INDÍTÁSA 👈",
                       style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
                     ),
                   ),
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  "Találd ki mind a 15 feladványt!",
-                  style: TextStyle(fontSize: 16, color: Colors.indigo),
-                ),
+                const Text("Találd ki mind a 15 feladványt!",
+                    style: TextStyle(fontSize: 16, color: Colors.indigo)),
               ],
             ),
           ),
@@ -264,7 +255,7 @@ class _JatekOldalState extends State<JatekOldal> {
               controller.clear();
               uzenet = "";
             } else {
-              uzenet = "VÉGE A JÁTÉKNAK! Összesen: $pontszam pont.🏆";
+              uzenet = "GRATULÁLOK! 🏆";
               jatekVege = true;
             }
           });
@@ -307,7 +298,7 @@ class _JatekOldalState extends State<JatekOldal> {
                     color: Colors.indigo)),
             const SizedBox(height: 10),
             Container(
-              height: 200,
+              height: 250,
               width: double.infinity,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.amber, width: 3),
@@ -316,8 +307,11 @@ class _JatekOldalState extends State<JatekOldal> {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.asset(feladvanyok[index]['kep']!,
-                    fit: BoxFit.contain),
+                child: jatekVege
+                    ? Image.asset('assets/king-julien-madagascar.gif',
+                        fit: BoxFit.contain)
+                    : Image.asset(feladvanyok[index]['kep']!,
+                        fit: BoxFit.contain),
               ),
             ),
             const SizedBox(height: 25),
@@ -334,13 +328,10 @@ class _JatekOldalState extends State<JatekOldal> {
                     (feladvanyok[index]['opciok'] as List<Map<String, String>>)
                         .map((opcio) {
                   return GestureDetector(
-                    onTap: () {
-                      // Itt most már a 'nev' kulcsot küldjük be!
-                      ellenorzes(opcio['nev']!);
-                    },
+                    onTap: () => ellenorzes(opcio['nev']!),
                     child: Container(
-                      width: 110,
-                      height: 110,
+                      width: 100,
+                      height: 100,
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.indigo, width: 3),
                         borderRadius: BorderRadius.circular(15),
@@ -391,15 +382,29 @@ class _JatekOldalState extends State<JatekOldal> {
                     color: Colors.deepOrange)),
             if (jatekVege) ...[
               const SizedBox(height: 20),
+              const Text("🏆 GRATULÁLOK! 🏆",
+                  style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.indigo)),
+              const Text("Szuperügyes vagy!",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.green,
+                      fontWeight: FontWeight.bold)),
+              const SizedBox(height: 20),
               ElevatedButton.icon(
                 onPressed: ujrakezdes,
                 icon: const Icon(Icons.refresh),
-                label: const Text("ÚJRA ELŐRŐL"),
+                label: const Text("ÚJRA JÁTSZOM"),
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
+                    backgroundColor: Colors.orange,
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 40, vertical: 15)),
+                        horizontal: 50, vertical: 20),
+                    textStyle: const TextStyle(
+                        fontSize: 22, fontWeight: FontWeight.bold)),
               ),
             ],
           ],
