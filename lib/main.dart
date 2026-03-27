@@ -20,6 +20,12 @@ class _FoOldalState extends State<FoOldal> {
     });
   }
 
+  void kilepes() {
+    setState(() {
+      jatekElindult = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     if (!jatekElindult) {
@@ -32,12 +38,12 @@ class _FoOldalState extends State<FoOldal> {
         ),
         body: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(30.0),
+            padding: const EdgeInsets.all(20.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 350,
+                  height: 300,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.indigo, width: 6),
@@ -53,7 +59,7 @@ class _FoOldalState extends State<FoOldal> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: 30),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -82,13 +88,15 @@ class _FoOldalState extends State<FoOldal> {
         ),
       );
     } else {
-      return const JatekOldal();
+      // Itt adjuk át a kilepes funkciót a JatekOldalnak
+      return JatekOldal(onExit: kilepes);
     }
   }
 }
 
 class JatekOldal extends StatefulWidget {
-  const JatekOldal({super.key});
+  final VoidCallback onExit;
+  const JatekOldal({super.key, required this.onExit});
 
   @override
   State<JatekOldal> createState() => _JatekOldalState();
@@ -102,7 +110,7 @@ class _JatekOldalState extends State<JatekOldal> {
       'opciok': [
         {'kep': 'assets/klikk_cica.jfif', 'nev': 'cica'},
         {'kep': 'assets/klikk_kutya.jfif', 'nev': 'kutya'},
-        {'kep': 'assets/klikk_lo.jfif', 'nev': 'lo'},
+        {'kep': 'assets/klikk_lo.jfif', 'nev': 'lo'}
       ]
     },
     {
@@ -111,7 +119,7 @@ class _JatekOldalState extends State<JatekOldal> {
       'opciok': [
         {'kep': 'assets/klikk_auto.jfif', 'nev': 'auto'},
         {'kep': 'assets/klikk_motor.jfif', 'nev': 'motor'},
-        {'kep': 'assets/klikk_bicikli.jfif', 'nev': 'bicikli'},
+        {'kep': 'assets/klikk_bicikli.jfif', 'nev': 'bicikli'}
       ]
     },
     {
@@ -120,7 +128,7 @@ class _JatekOldalState extends State<JatekOldal> {
       'opciok': [
         {'kep': 'assets/klikk_lo.jfif', 'nev': 'lo'},
         {'kep': 'assets/klikk_bicikli.jfif', 'nev': 'bicikli'},
-        {'kep': 'assets/klikk_auto.jfif', 'nev': 'auto'},
+        {'kep': 'assets/klikk_auto.jfif', 'nev': 'auto'}
       ]
     },
     {
@@ -129,7 +137,7 @@ class _JatekOldalState extends State<JatekOldal> {
       'opciok': [
         {'kep': 'assets/klikk_cica.jfif', 'nev': 'cica'},
         {'kep': 'assets/klikk_kutya.jfif', 'nev': 'kutya'},
-        {'kep': 'assets/klikk_nyul.jfif', 'nev': 'nyuszi'},
+        {'kep': 'assets/klikk_nyul.jfif', 'nev': 'nyuszi'}
       ]
     },
     {
@@ -138,7 +146,7 @@ class _JatekOldalState extends State<JatekOldal> {
       'opciok': [
         {'kep': 'assets/klikk_csiga.jfif', 'nev': 'csiga'},
         {'kep': 'assets/klikk_nyul.jfif', 'nev': 'nyuszi'},
-        {'kep': 'assets/klikk_zebra.jfif', 'nev': 'zebra'},
+        {'kep': 'assets/klikk_zebra.jfif', 'nev': 'zebra'}
       ]
     },
     {
@@ -147,7 +155,7 @@ class _JatekOldalState extends State<JatekOldal> {
       'opciok': [
         {'kep': 'assets/klikk_zebra.jfif', 'nev': 'zebra'},
         {'kep': 'assets/klikk_elefant.jfif', 'nev': 'elefant'},
-        {'kep': 'assets/klikk_lo.jfif', 'nev': 'lo'},
+        {'kep': 'assets/klikk_lo.jfif', 'nev': 'lo'}
       ]
     },
     {
@@ -156,7 +164,7 @@ class _JatekOldalState extends State<JatekOldal> {
       'opciok': [
         {'kep': 'assets/klikk_nyul.jfif', 'nev': 'nyuszi'},
         {'kep': 'assets/klikk_kutya.jfif', 'nev': 'kutya'},
-        {'kep': 'assets/klikk_cica.jfif', 'nev': 'cica'},
+        {'kep': 'assets/klikk_cica.jfif', 'nev': 'cica'}
       ]
     },
     {
@@ -165,7 +173,7 @@ class _JatekOldalState extends State<JatekOldal> {
       'opciok': [
         {'kep': 'assets/klikk_zebra.jfif', 'nev': 'zebra'},
         {'kep': 'assets/klikk_kutya.jfif', 'nev': 'kutya'},
-        {'kep': 'assets/klikk_lo.jfif', 'nev': 'lo'},
+        {'kep': 'assets/klikk_lo.jfif', 'nev': 'lo'}
       ]
     },
     {
@@ -174,7 +182,7 @@ class _JatekOldalState extends State<JatekOldal> {
       'opciok': [
         {'kep': 'assets/klikk_elefant.jfif', 'nev': 'elefant'},
         {'kep': 'assets/klikk_oroszlan.jfif', 'nev': 'oroszlan'},
-        {'kep': 'assets/klikk_tigris.jfif', 'nev': 'tigris'},
+        {'kep': 'assets/klikk_tigris.jfif', 'nev': 'tigris'}
       ]
     },
     {
@@ -183,7 +191,7 @@ class _JatekOldalState extends State<JatekOldal> {
       'opciok': [
         {'kep': 'assets/klikk_kutya.jfif', 'nev': 'kutya'},
         {'kep': 'assets/klikk_lo.jfif', 'nev': 'lo'},
-        {'kep': 'assets/klikk_madar.jfif', 'nev': 'madar'},
+        {'kep': 'assets/klikk_madar.jfif', 'nev': 'madar'}
       ]
     },
     {
@@ -192,7 +200,7 @@ class _JatekOldalState extends State<JatekOldal> {
       'opciok': [
         {'kep': 'assets/klikk_majom.jfif', 'nev': 'majom'},
         {'kep': 'assets/klikk_elefant.jfif', 'nev': 'elefant'},
-        {'kep': 'assets/klikk_tigris.jfif', 'nev': 'tigris'},
+        {'kep': 'assets/klikk_tigris.jfif', 'nev': 'tigris'}
       ]
     },
     {
@@ -201,7 +209,7 @@ class _JatekOldalState extends State<JatekOldal> {
       'opciok': [
         {'kep': 'assets/klikk_oroszlan.jfif', 'nev': 'oroszlan'},
         {'kep': 'assets/klikk_cica.jfif', 'nev': 'cica'},
-        {'kep': 'assets/klikk_tigris.jfif', 'nev': 'tigris'},
+        {'kep': 'assets/klikk_tigris.jfif', 'nev': 'tigris'}
       ]
     },
     {
@@ -210,7 +218,7 @@ class _JatekOldalState extends State<JatekOldal> {
       'opciok': [
         {'kep': 'assets/klikk_oroszlan.jfif', 'nev': 'oroszlan'},
         {'kep': 'assets/klikk_majom.jfif', 'nev': 'majom'},
-        {'kep': 'assets/klikk_elefant.jfif', 'nev': 'elefant'},
+        {'kep': 'assets/klikk_elefant.jfif', 'nev': 'elefant'}
       ]
     },
     {
@@ -219,7 +227,7 @@ class _JatekOldalState extends State<JatekOldal> {
       'opciok': [
         {'kep': 'assets/klikk_auto.jfif', 'nev': 'auto'},
         {'kep': 'assets/klikk_motor.jfif', 'nev': 'motor'},
-        {'kep': 'assets/klikk_bicikli.jfif', 'nev': 'bicikli'},
+        {'kep': 'assets/klikk_bicikli.jfif', 'nev': 'bicikli'}
       ]
     },
     {
@@ -228,9 +236,9 @@ class _JatekOldalState extends State<JatekOldal> {
       'opciok': [
         {'kep': 'assets/klikk_kutya.jfif', 'nev': 'kutya'},
         {'kep': 'assets/klikk_lo.jfif', 'nev': 'lo'},
-        {'kep': 'assets/klikk_hal.jfif', 'nev': 'halacska'},
+        {'kep': 'assets/klikk_hal.jfif', 'nev': 'halacska'}
       ]
-    }
+    },
   ];
 
   int index = 0;
@@ -240,6 +248,7 @@ class _JatekOldalState extends State<JatekOldal> {
   bool jatekVege = false;
 
   void ellenorzes(String tipp) {
+    if (jatekVege) return;
     String tisztaTipp = tipp.trim().toLowerCase();
     if (tisztaTipp == feladvanyok[index]['valasz'].toString().toLowerCase()) {
       setState(() {
@@ -255,7 +264,7 @@ class _JatekOldalState extends State<JatekOldal> {
               controller.clear();
               uzenet = "";
             } else {
-              uzenet = "GRATULÁLOK! 🏆";
+              uzenet = "VÉGE A JÁTÉKNAK! 🏆";
               jatekVege = true;
             }
           });
@@ -263,7 +272,7 @@ class _JatekOldalState extends State<JatekOldal> {
       });
     } else {
       setState(() {
-        uzenet = "Sajnos nem talált! ❌ Próbáld újra!";
+        uzenet = "Sajnos nem talált! ❌";
       });
     }
   }
@@ -286,42 +295,50 @@ class _JatekOldalState extends State<JatekOldal> {
         title: const Text("Óvodás Activity"),
         backgroundColor: Colors.amber,
         centerTitle: true,
+        toolbarHeight: 50,
+        // KILÉPÉS GOMB AZ APPBAR-BAN
+        leading: IconButton(
+          icon: const Icon(Icons.exit_to_app, color: Colors.black),
+          onPressed: widget.onExit,
+        ),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20.0),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
             Text("Pontszám: $pontszam",
                 style: const TextStyle(
-                    fontSize: 24,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.indigo)),
-            const SizedBox(height: 10),
-            Container(
-              height: 250,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.amber, width: 3),
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: jatekVege
-                    ? Image.asset('assets/king-julien-madagascar.gif',
-                        fit: BoxFit.contain)
-                    : Image.asset(feladvanyok[index]['kep']!,
-                        fit: BoxFit.contain),
+            const SizedBox(height: 5),
+            // RUGALMAS KÉP - hogy ne kelljen tekergetni
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.amber, width: 3),
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: jatekVege
+                      ? Image.asset('assets/king-julien-madagascar.gif',
+                          fit: BoxFit.contain)
+                      : Image.asset(feladvanyok[index]['kep']!,
+                          fit: BoxFit.contain),
+                ),
               ),
             ),
-            const SizedBox(height: 25),
+            const SizedBox(height: 10),
             if (!jatekVege) ...[
-              const Text("Melyik van a képen? Kattints rá!",
+              const Text("Melyik van a képen?",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                      fontSize: 16,
                       color: Colors.indigo)),
-              const SizedBox(height: 15),
+              const SizedBox(height: 8),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children:
@@ -330,14 +347,14 @@ class _JatekOldalState extends State<JatekOldal> {
                   return GestureDetector(
                     onTap: () => ellenorzes(opcio['nev']!),
                     child: Container(
-                      width: 100,
-                      height: 100,
+                      width: 85,
+                      height: 85,
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.indigo, width: 3),
+                        border: Border.all(color: Colors.indigo, width: 2),
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.white,
                         boxShadow: const [
-                          BoxShadow(color: Colors.black12, blurRadius: 5)
+                          BoxShadow(color: Colors.black12, blurRadius: 4)
                         ],
                       ),
                       child: ClipRRect(
@@ -348,52 +365,36 @@ class _JatekOldalState extends State<JatekOldal> {
                   );
                 }).toList(),
               ),
-              const SizedBox(height: 30),
-              TextField(
-                controller: controller,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: "Vagy írd be ide a választ...",
-                  filled: true,
-                  fillColor: Colors.white,
-                  isDense: true,
-                ),
-                onSubmitted: (value) => ellenorzes(value),
-              ),
               const SizedBox(height: 10),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.amber,
-                    minimumSize: const Size(double.infinity, 45),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10))),
-                onPressed: () => ellenorzes(controller.text),
-                child: const Text("Ellenőrzés",
-                    style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.bold)),
+              SizedBox(
+                height: 40,
+                child: TextField(
+                  controller: controller,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: "Vagy írd be...",
+                    filled: true,
+                    fillColor: Colors.white,
+                    isDense: true,
+                  ),
+                  onSubmitted: (value) => ellenorzes(value),
+                ),
               ),
             ],
-            const SizedBox(height: 20),
+            const SizedBox(height: 5),
             Text(uzenet,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                    fontSize: 22,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.deepOrange)),
             if (jatekVege) ...[
-              const SizedBox(height: 20),
               const Text("🏆 GRATULÁLOK! 🏆",
                   style: TextStyle(
-                      fontSize: 32,
+                      fontSize: 24,
                       fontWeight: FontWeight.bold,
                       color: Colors.indigo)),
-              const Text("Szuperügyes vagy!",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.green,
-                      fontWeight: FontWeight.bold)),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               ElevatedButton.icon(
                 onPressed: ujrakezdes,
                 icon: const Icon(Icons.refresh),
@@ -402,9 +403,9 @@ class _JatekOldalState extends State<JatekOldal> {
                     backgroundColor: Colors.orange,
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 50, vertical: 20),
+                        horizontal: 30, vertical: 15),
                     textStyle: const TextStyle(
-                        fontSize: 22, fontWeight: FontWeight.bold)),
+                        fontSize: 18, fontWeight: FontWeight.bold)),
               ),
             ],
           ],
