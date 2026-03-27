@@ -116,7 +116,7 @@ class _JatekOldalState extends State<JatekOldal> {
     },
     {
       'kep': 'assets/auto.jpg',
-      'valasz': 'autó',
+      'valasz': 'auto',
       'opciok': [
         'assets/klikk_auto.jfif',
         'assets/klikk_motor.jfif',
@@ -132,7 +132,114 @@ class _JatekOldalState extends State<JatekOldal> {
         'assets/klikk_auto.jfif'
       ]
     },
-    // Ide jöhet a többi 12 kép...
+    {
+      'kep': 'assets/cica.jpg',
+      'valasz': 'cica',
+      'opciok': [
+        'assets/klikk_cica.jfif',
+        'assets/klikk_kutya.jfif',
+        'assets/klikk_nyuszi.jfif'
+      ]
+    },
+    {
+      'kep': 'assets/csiga.jpg',
+      'valasz': 'csiga',
+      'opciok': [
+        'assets/klikk_csiga.jfif',
+        'assets/klikk_nyul.jfif',
+        'assets/klikk_zebra.jfif'
+      ]
+    },
+    {
+      'kep': 'assets/zebra.jpg',
+      'valasz': 'zebra',
+      'opciok': [
+        'assets/klikk_zebra.jfif',
+        'assets/klikk_elefant.jfif',
+        'assets/klikk_lo.jfif'
+      ]
+    },
+    {
+      'kep': 'assets/nyuszi.jpg',
+      'valasz': 'nyuszi',
+      'opciok': [
+        'assets/klikk_nyul.jfif',
+        'assets/klikk_kutya.jfif',
+        'assets/klikk_cica.jfif'
+      ]
+    },
+    {
+      'kep': 'assets/lo.jpg',
+      'valasz': 'lo',
+      'opciok': [
+        'assets/klikk_zebra.jfif',
+        'assets/klikk_kutya.jfif',
+        'assets/klikk_lo.jfif'
+      ]
+    },
+    {
+      'kep': 'assets/elefant.jpg',
+      'valasz': 'elefant',
+      'opciok': [
+        'assets/klikk_elefant.jfif',
+        'assets/klikk_oroszlan.jfif',
+        'assets/klikk_tigris.jfif'
+      ]
+    },
+    {
+      'kep': 'assets/madar.jpg',
+      'valasz': 'madar',
+      'opciok': [
+        'assets/klikk_madar.jfif',
+        'assets/klikk_kutya.jfif',
+        'assets/klikk_lo.jfif'
+      ]
+    },
+    {
+      'kep': 'assets/majom.jpg',
+      'valasz': 'majom',
+      'opciok': [
+        'assets/klikk_majom.jfif',
+        'assets/klikk_elefant.jfif',
+        'assets/klikk_tigris.jfif'
+      ]
+    },
+    {
+      'kep': 'assets/tigris.jpg',
+      'valasz': 'tigris',
+      'opciok': [
+        'assets/klikk_tigris.jfif',
+        'assets/klikk_oroszlan.jfif',
+        'assets/klikk_cica.jfif'
+      ]
+    },
+    {
+      'kep': 'assets/oroszlan.jpg',
+      'valasz': 'oroszlan',
+      'opciok': [
+        'assets/klikk_oroszlan.jfif',
+        'assets/klikk_majom.jfif',
+        'assets/klikk_elefant.jfif'
+      ]
+    },
+    {
+      'kep': 'assets/motor.jpg',
+      'valasz': 'motor',
+      'opciok': [
+        'assets/klikk_motor.jfif',
+        'assets/klikk_auto.jfif',
+        'assets/klikk_bicikli.jfif'
+      ]
+    },
+    {
+      'kep': 'assets/halacska.jpg',
+      'valasz': 'halacska',
+      'opciok': [
+        'assets/klikk_hal.jfif',
+        'assets/klikk_kutya.jfif',
+        'assets/klikk_lo.jfif'
+      ]
+    }
   ];
 
   int index = 0;
