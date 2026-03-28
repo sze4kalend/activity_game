@@ -32,7 +32,7 @@ class _FoOldalState extends State<FoOldal> {
       return Scaffold(
         backgroundColor: Colors.indigo[50],
         appBar: AppBar(
-          title: const Text("Junior Activity Dolgozat"),
+          title: const Text("Junior Activity by Andrew"),
           backgroundColor: Colors.indigo,
           centerTitle: true,
         ),
@@ -43,7 +43,7 @@ class _FoOldalState extends State<FoOldal> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  height: 300,
+                  height: 500,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.indigo, width: 6),
