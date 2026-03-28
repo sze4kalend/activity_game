@@ -32,7 +32,7 @@ class _FoOldalState extends State<FoOldal> {
       return Scaffold(
         backgroundColor: Colors.indigo[50],
         appBar: AppBar(
-          title: const Text("Junior Activity by Andrew"),
+          title: const Text("Junior Activity Dolgozat"),
           backgroundColor: Colors.indigo,
           centerTitle: true,
         ),
@@ -88,7 +88,6 @@ class _FoOldalState extends State<FoOldal> {
         ),
       );
     } else {
-      // Itt adjuk át a kilepes funkciót a JatekOldalnak
       return JatekOldal(onExit: kilepes);
     }
   }
@@ -296,7 +295,6 @@ class _JatekOldalState extends State<JatekOldal> {
         backgroundColor: Colors.amber,
         centerTitle: true,
         toolbarHeight: 50,
-        // KILÉPÉS GOMB AZ APPBAR-BAN
         leading: IconButton(
           icon: const Icon(Icons.exit_to_app, color: Colors.black),
           onPressed: widget.onExit,
@@ -312,8 +310,9 @@ class _JatekOldalState extends State<JatekOldal> {
                     fontWeight: FontWeight.bold,
                     color: Colors.indigo)),
             const SizedBox(height: 5),
-            // RUGALMAS KÉP - hogy ne kelljen tekergetni
+            // Rugalmas központi nagy kép, de nem túl nagy
             Expanded(
+              flex: 4,
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -339,6 +338,7 @@ class _JatekOldalState extends State<JatekOldal> {
                       fontSize: 16,
                       color: Colors.indigo)),
               const SizedBox(height: 8),
+              // MEGNÖVELT KIS KÉPEK SORA
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children:
@@ -347,10 +347,10 @@ class _JatekOldalState extends State<JatekOldal> {
                   return GestureDetector(
                     onTap: () => ellenorzes(opcio['nev']!),
                     child: Container(
-                      width: 85,
-                      height: 85,
+                      width: 110, // Nagyobb szélesség
+                      height: 110, // Nagyobb magasság
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.indigo, width: 2),
+                        border: Border.all(color: Colors.indigo, width: 3),
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.white,
                         boxShadow: const [
